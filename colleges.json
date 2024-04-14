@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Trinity College Dublin",
+    "description": "Ireland's oldest university, renowned for its academic excellence.",
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm5yiw418SCxGonSlEY0iXbhsoATl2jV7JHotxBqwDuA&s"
+  },
+  {
+    "name": "University College Dublin",
+    "description": "A leading research-intensive university with a global reputation.",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/9/9e/UCD_Dublin.png"
+  },
+  {
+    "name": "National University of Ireland, Galway",
+    "description": "Known for its strong focus on research and innovation.",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/9/91/Crest_of_NUI%2C_Galway.png"
+  },
+  {
+    "name": "University College Cork",
+    "description": "Offers a wide range of programs and is recognized for its research contributions.",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/0/09/University_College_Cork_logo.svg/440px-University_College_Cork_logo.svg.png"
+  },
+  {
+    "name": "Dublin City University",
+    "description": "Known for its innovative teaching methods and strong industry links.",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/b/b2/Dublin_City_University_%28logo%29.png"
+  },
+  {
+    "name": "University of Limerick",
+    "description": "Renowned for its emphasis on experiential learning and industry collaboration.",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/b/b0/University_of_Limerick_Heraldic_Crest.png"
+  },
+  {
+    "name": "Maynooth University",
+    "description": "Recognized for its vibrant campus and strong community engagement.",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/d/d9/Maynooth_University_logo.png"
+  },
+  {
+    "name": "Dublin Institute of Technology",
+    "description": "Provides a diverse range of programs with a focus on practical learning.",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/6/6d/Dublin_Institute_of_Technology.png"
+  },
+  {
+    "name": "Cork Institute of Technology",
+    "description": "Offers programs in various fields with a focus on industry relevance.",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/4/4b/Citcrest.jpg"
+  },
+  {
+    "name": "National College of Ireland",
+    "description": "Known for its strong business programs and industry partnerships.",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/d/d1/National_College_of_Ireland_logo.png"
+  },
+  {
+    "name": "Institute of Technology, Sligo",
+    "description": "Offers programs in areas such as science, engineering, and business.",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Itsligo-logo.jpg/440px-Itsligo-logo.jpg"
+  },
+  {
+    "name": "Waterford Institute of Technology",
+    "description": "Known for its applied research and strong industry connections.",
+    "logo_url": "https://www.wtu-n.net/wp-content/uploads/2019/03/WIT-300x174.jpg"
+  },
+  {
+    "name": "Galway-Mayo Institute of Technology",
+    "description": "Offers a range of programs in arts, science, and technology.",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/6/6b/GMIT_Logo_2011a.jpg"
+  },
+  {
+    "name": "Letterkenny Institute of Technology",
+    "description": "Provides programs in areas such as computing, engineering, and business.",
+    "logo_url": "https://norsensus.no/media/2020/03/lyit_logo-768x768.png"
+  },
+  {
+    "name": "Dundalk Institute of Technology",
+    "description": "Known for its focus on innovation and entrepreneurship.",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/DkIT_Undergraduate_Logo_RGB_Blue.jpg/440px-DkIT_Undergraduate_Logo_RGB_Blue.jpg"
+  },
+  {
+    "name": "Athlone Institute of Technology",
+    "description": "Offers programs in engineering, business, and science.",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/c/c3/Athlone_Institute_of_Technology_Logo_Circa_2015.png"
+  },
+  {
+    "name": "Limerick Institute of Technology",
+    "description": "Renowned for its strong emphasis on practical learning.",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/3/36/LIT_Crest_180x191.jpg"
+  },
+  {
+    "name": "Institute of Technology Carlow",
+    "description": "Offers programs in areas such as engineering, business, and humanities.",
+    "logo_url": "https://www.trendsovertime.studentsurvey.ie/sites/default/files/2022-07/ITC%20logo-blue-CMYK-Mar2017resized_2.jpg"
+  },
+  {
+    "name": "Institute of Technology Tralee",
+    "description": "Known for its strong industry partnerships and career-focused programs.",
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYW0Oue0bT_clekWy_syw7WoQhqpwlnR5bfEoCCZ-rxQ&s"
+  },
+  {
+    "name": "Institute of Technology Tallaght",
+    "description": "Offers programs in areas such as computing, engineering, and business.",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/5/5e/Institute_of_Technology%2C_Tallaght_%28Logo%29.jpeg"
+  }
+]

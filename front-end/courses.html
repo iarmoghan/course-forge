@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Listing</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS */
+        /* Style for the search bar and filter dropdown */
+        .search-filter {
+            margin-bottom: 20px;
+        }
+        /* Style for course cards */
+        .course-card {
+            margin-bottom: 20px;
+        }
+        .course-card img {
+            max-height: 200px;
+            object-fit: cover;
+        }
+        /* Footer styles */
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Course Forge</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Courses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./colleges.html">College</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item" id="create-course-link" style="display: none;">
+                <a class="nav-link" href="./login.html">Create Course</a>
+            </li>
+            <li class="nav-item" id="logout-link" style="display: none;">
+                <a class="nav-link" href="#" onclick="logout()">Logout</a>
+            </li>
+            <li class="nav-item" id="login-link">
+                <a class="nav-link" href="./login.html">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- Search bar and filter dropdown -->
+    <div class="row justify-content-between search-filter">
+        <div class="col-md-6">
+            <input type="text" class="form-control" id="searchInput" placeholder="Search courses...">
+        </div>
+        <div class="col-md-4">
+            <select class="form-control" id="nfqLevelFilter">
+                <option value="">Select NFQ Level</option>
+                <option value="1">Level 1</option>
+                <option value="2">Level 2</option>
+                <option value="3">Level 3</option>
+                <option value="4">Level 4</option>
+                <option value="5">Level 5</option>
+                <option value="6">Level 6</option>
+                <option value="7">Level 7</option>
+                <option value="8">Level 8</option>
+                <option value="9">Level 9</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Course cards -->
+    <div class="row" id="courseCards">
+        <!-- Course cards will be dynamically added here -->
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Course Forge</p>
+</footer>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap JS (optional) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Function to check if JWT token is set in cookies
+    function isJwtTokenSet() {
+        return document.cookie.split(';').some((item) => item.trim().startsWith('jwtToken='));
+    }
+
+    // Function to toggle visibility of UI components based on JWT token
+    function toggleUIVisibility() {
+        if (isJwtTokenSet()) {
+            // JWT token is set, hide login UI and show create course and logout links
+            document.getElementById('login-link').style.display = 'none';
+
+            document.getElementById('create-course-link').style.display = 'block';
+            document.getElementById('logout-link').style.display = 'block';
+        } else {
+            // JWT token is not set, show login UI and hide create course and logout links
+            document.getElementById('login-link').style.display = 'block';
+
+            document.getElementById('create-course-link').style.display = 'none';
+            document.getElementById('logout-link').style.display = 'none';
+        }
+    }
+
+    // Function to logout and clear JWT token from cookies
+    function logout() {
+        document.cookie = 'jwtToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        toggleUIVisibility(); // Update UI visibility after logout
+    }
+
+    // Call toggleUIVisibility function when the page loads
+    toggleUIVisibility();
+</script>
+<script>
+    $(document).ready(function() {
+        function fetchCourses() {
+            fetchCoursesWithKeyWord();
+        }
+        // Function to fetch courses from the API
+        function fetchCoursesWithKeyWord(keyword=null) {
+            $.ajax({
+                url: 'http://localhost:3000/courses',
+                method: 'GET',
+                data: {
+                    keyword: keyword || $('#searchInput').val(),
+                    nfqLevel: $('#nfqLevelFilter').val()
+                },
+                success: function(courses) {
+                    // Clear existing course cards
+                    $('#courseCards').empty();
+
+                    // Iterate over courses and create course cards
+                    courses.forEach(function(course) {
+                        var cardHtml = `
+                                <div class="col-md-4">
+                                    <div class="card course-card">
+                                        <img src="${course.art_link}" class="card-img-top" alt="${course.name} Image">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${course.name}</h5>
+                                            <h6 class="card-title">${course.institute}</h6>
+                                            <p class="card-text">${course.description}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        $('#courseCards').append(cardHtml);
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error fetching courses:', error);
+                    // You can handle errors here, such as displaying an error message
+                }
+            });
+        }
+
+        // Attach event listeners to search input and filter dropdown
+        $('#searchInput, #nfqLevelFilter').on('input',fetchCourses);
+
+        // Fetch courses based on keyword provided in the query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const keyword = urlParams.get('keyword');
+        if (keyword) {
+            // Populate search input with the keyword
+            $('#searchInput').val(keyword);
+            fetchCoursesWithKeyWord(keyword);
+        } else {
+            // Fetch courses when the page loads
+            fetchCourses();
+        }
+    });
+</script>
+</body>
+</html>
